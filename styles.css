@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #232838;
+}
+
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('./fonts/RobotoMono-VariableFont_wght.ttf');
+}
+
+h1 {
+    font-family: 'RobotoMono';
+}
+
+h2 {
+    font-family: 'RobotoMono';
+}
+
+#Matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 30px);
+    gap: 10px;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+    padding: 1%;
+    background-color: #232838;
+    border-radius: 1.5vh;
+    width: auto;
+    height: auto;
+}
+
+#content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: auto;
+    background-color: #232838;
+}
+
+#title {
+    color: white;
+}
+
+#buttonsdiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 40vh;
+    height: 20vh;
+
+}
+
+#info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+button {
+    border: none;
+    text-align: center;
+    padding: 1%;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #8aedb3;
+    font-family: 'RobotoMono';
+    font-size: medium;
+    font-weight: bold;
+    color: #232838;
+    cursor: pointer;
+    padding: 5%;
+}
+
+button:disabled {
+  background-color: #5fb884;
+}
