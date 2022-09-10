@@ -40,7 +40,7 @@ let Timer = () => {
     }, 1000);
 }
 
-div.style.gridTemplateColumns = `repeat(${matrixSize[0]}, calc(6vh + 0.3vw - 0.5rem))`;
+div.style.gridTemplateColumns = `repeat(${matrixSize[0]}, calc(5vh + 0.4vw - 0.5rem))`;
 
 function CreateMatrixofSquares(BombsList) {
     let SquaresArray = [];
@@ -65,8 +65,8 @@ function CreateMatrixofSquares(BombsList) {
 
             let Square = document.createElement('div');
             
-            Square.style.width = 'calc(6vh + 0.3vw - 0.5rem)';
-            Square.style.height = 'calc(6vh + 0.3vw - 0.5rem)';
+            Square.style.width = 'calc(5vh + 0.4vw - 0.5rem)';
+            Square.style.height = 'calc(5vh + 0.4vw - 0.5rem)';
             Square.style.borderRadius = '1.5vh';
             Square.style.backgroundColor = SquareColor;
             Square.style.zIndex = '0';
@@ -115,7 +115,7 @@ function CreateMatrixofSquares(BombsList) {
                     if (isBomb([x,y])) {
                         Square.style.backgroundImage = 'url("bomb.png")';
                         Square.style.backgroundRepeat = 'no-repeat';
-                        Square.style.backgroundSize = 'calc(3vh + 0.3vw)';
+                        Square.style.backgroundSize = 'calc(2vh + 0.5vw)';
                         Square.style.backgroundPosition = 'center';
                     } else {
                         let Number = document.createElement('h1');
@@ -128,7 +128,7 @@ function CreateMatrixofSquares(BombsList) {
                         Number.style.zIndex = '1000';
                         Number.style.fontSize = 'small';
                         Number.style.textAlign = 'center';
-                        Number.style.fontSize = '1rem';
+                        Number.style.fontSize = '0.6rem';
       
                         Square.replaceChildren(Number);
                     }
@@ -238,7 +238,7 @@ function CreateMatrixofSquares(BombsList) {
                     Number.style.zIndex = '1000';
                     Number.style.fontSize = 'small';
                     Number.style.textAlign = 'center';
-                    Number.style.fontSize = '1rem';
+                    Number.style.fontSize = '0.6rem';
                     
                     Square.replaceChildren(Number);
                 }

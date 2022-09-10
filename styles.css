@@ -15,6 +15,7 @@ h1 {
 
 h2 {
     font-family: 'RobotoMono';
+    font-size: medium;
 }
 
 #Matrix {
@@ -73,6 +74,7 @@ button {
     color: #232838;
     cursor: pointer;
     padding: 5%;
+    font-size: small;
 }
 
 button:disabled {
