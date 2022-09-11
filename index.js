@@ -148,6 +148,21 @@ function CreateMatrixofSquares(BombsList) {
                 if ( div.children[SquareNumber] != undefined) {
 
                     div.children[SquareNumber].style.backgroundColor = SquareClickedColor;
+
+                    let Number = document.createElement('h1');
+                    let CalculatedNumer = CalculateNumber(pos);
+
+                    if (CalculatedNumer !== 0) {
+                        Number.innerText = CalculatedNumer;
+                    }
+
+                    Number.style.zIndex = '1000';
+                    Number.style.fontSize = 'small';
+                    Number.style.textAlign = 'center';
+                    Number.style.fontSize = '0.6rem';
+                    
+                    div.children[SquareNumber].replaceChildren(Number);
+
                     if (!islose) {
                         score++;
                         scoreText.innerText = `Score: ${score}/${TotalPoints}`;
@@ -157,28 +172,30 @@ function CreateMatrixofSquares(BombsList) {
                     let left = [pos[0] - 1, pos[1]];
                     let Right = [pos[0] + 1, pos[1]];
                     let down = [pos[0], pos[1] - 1];
-                    
-                    if (CalculateNumber(up) == 0 && !ClickedSquares.includes(calcSquare(up))) {
-                        if (up[0] >= 0 && up[0] < matrixSize[0] && up[1] >= 0 && up[1] < matrixSize[1]) {
-                            Empty(up);
-                        }
-                    }
 
-                    if (CalculateNumber(left) == 0 && !ClickedSquares.includes(calcSquare(left))) {
-                        if (left[0] >= 0 && left[0] < matrixSize[0] && left[1] >= 0 && left[1] < matrixSize[1]) {
-                            Empty(left);
+                    if (CalculatedNumer == 0) {
+                        if (!ClickedSquares.includes(calcSquare(up))) {
+                            if (up[0] >= 0 && up[0] < matrixSize[0] && up[1] >= 0 && up[1] < matrixSize[1]) {
+                                Empty(up);
+                            }
                         }
-                    }
-                    
-                    if (CalculateNumber(Right) == 0 && !ClickedSquares.includes(calcSquare(Right))) {
-                        if (Right[0] >= 0 && Right[0] < matrixSize[0] && Right[1] >= 0 && Right[1] < matrixSize[1]) {
-                            Empty(Right);
+                        
+                        if (!ClickedSquares.includes(calcSquare(left))) {
+                            if (left[0] >= 0 && left[0] < matrixSize[0] && left[1] >= 0 && left[1] < matrixSize[1]) {
+                                Empty(left);
+                            }
                         }
-                    }
-
-                    if (CalculateNumber(down) == 0 && !ClickedSquares.includes(calcSquare(down))) {
-                        if (down[0] >= 0 && down[0] < matrixSize[0] && down[1] >= 0 && down[1] < matrixSize[1]) {
-                            Empty(down);
+                        
+                        if (!ClickedSquares.includes(calcSquare(Right))) {
+                            if (Right[0] >= 0 && Right[0] < matrixSize[0] && Right[1] >= 0 && Right[1] < matrixSize[1]) {
+                                Empty(Right);
+                            }
+                        }
+                        
+                        if (!ClickedSquares.includes(calcSquare(down))) {
+                            if (down[0] >= 0 && down[0] < matrixSize[0] && down[1] >= 0 && down[1] < matrixSize[1]) {
+                                Empty(down);
+                            }
                         }
                     }
                 }
@@ -190,61 +207,66 @@ function CreateMatrixofSquares(BombsList) {
             
             let clickFunc = () => {
                 
-                Square.style.backgroundColor = SquareClickedColor;
-                Square.style.backgroundImage = '';
-                let SquareNumber = calcSquare(pos);
-                
-                if (isBomb(pos)) {
-                    lose();
-                    scoreText.innerText = `You lose! Score: ${score}`;
-                    scoreText.style.color = '#f5427e';
-                    clearInterval(InterList);
-                    intervalON = true;
-                    islose = true;
-                } else {
-                    if (!islose) {
-                        score++;
-                    }
-
-                    if (!intervalON) {
-                        Timer();
-                        intervalON = true;
-                    }
-
-                    if (score == TotalPoints) {
-                        scoreText.innerText = `You win! Score: ${score}`;
-                        scoreText.style.color = '#8aedb3';
-                        clearInterval(InterList);
-                        intervalON = true;
-                        return;
-                    } else {
-                        scoreText.innerText = `Score: ${score}/${TotalPoints}`;
-                    }
-
-                    let Number = document.createElement('h1');
-                    let CalculatedNumer = CalculateNumber(pos);
-
-                    let calcSquare = (pos) => {
-                        return (pos[1] * matrixSize[0] + pos[0]);
-                    }
-
-                    if (CalculatedNumer !== 0) {
-                        Number.innerText = CalculatedNumer;
-                    } else if (!ClickedSquares.includes(calcSquare(pos))) {
-                        
-                        Empty(pos);
-                    }
-
-                    Number.style.zIndex = '1000';
-                    Number.style.fontSize = 'small';
-                    Number.style.textAlign = 'center';
-                    Number.style.fontSize = '0.6rem';
+                if (Square.style.backgroundImage != 'url("flag.png")') {   
+                    Square.style.backgroundColor = SquareClickedColor;
+                    Square.style.backgroundImage = '';
+                    let SquareNumber = calcSquare(pos);
                     
-                    Square.replaceChildren(Number);
-                }
+                    if (isBomb(pos)) {
+                            lose();
+                            scoreText.innerText = `You lose! Score: ${score}`;
+                            scoreText.style.color = '#f5427e';
+                            clearInterval(InterList);
+                            intervalON = true;
+                            islose = true;
+                    } else {
 
-                Square.removeEventListener('click', clickFunc);
-                ClickedSquares.push(SquareNumber);
+                        if (!intervalON) {
+                            Timer();
+                            intervalON = true;
+                        }
+
+                        if (score == TotalPoints) {
+                            scoreText.innerText = `You win! Score: ${score}`;
+                            scoreText.style.color = '#8aedb3';
+                            clearInterval(InterList);
+                            intervalON = true;
+                            return;
+                        } else {
+                            scoreText.innerText = `Score: ${score}/${TotalPoints}`;
+                        }
+
+                        let Number = document.createElement('h1');
+                        let CalculatedNumer = CalculateNumber(pos);
+
+                        let calcSquare = (pos) => {
+                            return (pos[1] * matrixSize[0] + pos[0]);
+                        }
+
+                        if (CalculatedNumer !== 0) {
+                            Number.innerText = CalculatedNumer;
+
+                            if (!islose && !ClickedSquares.includes(calcSquare(pos))) {
+                                score++;
+                            }
+
+                            ClickedSquares.push(SquareNumber);
+
+                        } else if (!ClickedSquares.includes(calcSquare(pos))) {
+                            
+                            Empty(pos);
+                        }
+
+                        Number.style.zIndex = '1000';
+                        Number.style.fontSize = 'small';
+                        Number.style.textAlign = 'center';
+                        Number.style.fontSize = '0.6rem';
+                        
+                        Square.replaceChildren(Number);
+                    }
+
+                    Square.removeEventListener('click', clickFunc);
+                }
             }
 
             Square.addEventListener('click', clickFunc);
