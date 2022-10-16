@@ -1,82 +1,200 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #232838;
+:root {
+    --divcolor: white;
+    --darkcolor1: #181B1F;
+    --darkcolor2: #1C1F27;
+    --darkcolor3: #293240;
+    --textcolor1: white;
+    --pink: #FFBDE1;
+    --pinkligth: #ffbde12d;
+    --green: #60DBA7;
+    --transparent: rgba(0, 0, 0, 0);
 }
 
-@font-face {
-    font-family: 'RobotoMono';
-    src: url('./fonts/RobotoMono-VariableFont_wght.ttf');
+::-webkit-scrollbar {
+    display: none;
 }
 
 h1 {
-    font-family: 'RobotoMono';
+    font-family: 'IBM Plex Mono', monospace;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    margin: 0;
+    color: var(--textcolor1);
 }
 
 h2 {
-    font-family: 'RobotoMono';
-    font-size: medium;
+    font-family: 'IBM Plex Mono', monospace;
+    padding-top: 1rem;
+    padding-left: 3rem;
+    margin: 0;
+    color: var(--textcolor1);
 }
 
-#Matrix {
+h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    /* padding-top: 1rem; */
+    padding-left: 3rem;
+    margin: 0;
+    color: var(--textcolor1);
+}
+
+p {
+    font-family: 'IBM Plex Mono', monospace;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin: 0;
+    color: var(--textcolor1);
+}
+
+#apresentation {
+    border-right: .5em solid var(--green); /* The typwriter cursor */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .20em; /* Adjust as needed */
+
+}
+
+a {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--pink);
+}
+
+div {
+    border-radius: 2rem;
+    background-color: var(--darkcolor3);
+    height: 90vh;
+}
+
+#slidebar{
+    z-index: 0;
+    height: 100%;
+    width: 2%;
+    background-color: var(--green);
+    position: absolute;
+    left: 98vw;
+    top: 0;
+    border-radius: 0;
+}
+
+#name {
+    color: var(--pink);
+}
+
+#about {
+    color: var(--green);
+}
+
+#prices {
+    color: var(--green);
+}
+
+#header {
     display: grid;
-    grid-template-columns: repeat(3, 30px);
-    gap: 10px;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
-    padding: 1%;
-    background-color: #232838;
-    border-radius: 1.5vh;
+    grid-template-columns: 49vw 49vw;
+    background-color: var(--darkcolor1);
+}
+
+#tullyinfo {
+    background-color: var(--darkcolor1);
     width: auto;
-    height: auto;
+    height: 100%;
 }
 
-#content {
+@media screen and (max-width: 600px) {
+    #header {
+      grid-template-columns: auto;
+    }
+  }
+
+#examplesBorder {
+    transition: .2s ease-out;
+    background-color: var(--pink);
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    padding: auto;
-    background-color: #232838;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    margin: 2rem;
+    /* box-shadow: 0px 0px 2rem 0.3rem var(--pinkligth); */
+  }
+  
+  #examplesBorder:hover {
+    transform: translate3d(0,-2px,0);
+    /* box-shadow: 0px 0px 2rem 0.3rem var(--pinkligth); */
+  }
+
+#examplesArea {
+    background-color: var(--darkcolor1);
+    width: 99%;
+    height: 100%;
+    border-radius: 2.1rem;
 }
 
-#title {
-    color: white;
+@media screen and (max-width: 600px) {
+    #examplesArea {
+        width: 100%;
+        height: 99%;
+    }
 }
 
-#buttonsdiv {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    width: 40vh;
-    height: 20vh;
+#exampleImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 2.1rem;
+    object-fit: cover;
+}
 
+#gradient {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to right, var(--pink), var(--transparent));
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+#gradient2 {
+    position: absolute;
+    left: 80%;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to left, var(--pink), var(--transparent));
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+#cut1 {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    left: 25%;
+    bottom: 97%;
+    pointer-events: none;
+    background-color: var(--darkcolor1);
+}
+
+#cut2 {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    top: 97%;
+    left: 25%;
+    pointer-events: none;
+    background-color: var(--darkcolor1);
 }
 
 #info {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
+    width: 50%;
+    height: 20%;
+    background-color: var(--transparent);
+    position: absolute;
+    z-index: 10;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0;
 }
 
-button {
-    border: none;
-    text-align: center;
-    padding: 1%;
-    text-decoration: none;
-    border-radius: 10px;
-    background-color: #8aedb3;
-    font-family: 'RobotoMono';
-    font-size: medium;
-    font-weight: bold;
-    color: #232838;
-    cursor: pointer;
-    padding: 5%;
-    font-size: small;
-}
-
-button:disabled {
-  background-color: #5fb884;
+body {
+    margin: 1vw;
+    padding: 0;
+    background-color: var(--darkcolor1);
 }

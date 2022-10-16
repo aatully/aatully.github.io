@@ -4,23 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./flag.png">
+    <!-- <link rel="icon" href="./flag.png"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="./styles.css" rel="stylesheet">
-    <title>Campo Minado</title>
+    <title>tully - Commisions</title>
 </head>
 <body>
-    <div id="content">
-        <h1 id="title">Campo minado</h1>
-        <div id="info">
-            <h2 id="score">Score: 0</h2>
-            <h2 id="timer"></h2>
-        </div>
-        <div id="Matrix"  oncontextmenu="return false;"></div>
-        <div id="buttonsdiv">
-            <button id="restart">Restart</button>
-            <button id="Challange">SpeedRun Mode</button>
+    <div id="grid">
+        <div id="header">
+            <div id="tullyinfo">
+                <h1 id="name">tully</h1>
+                <h2 id="about">Commissions</h2>
+                <p id="apresentation">
+                    Oi!
+                    Se você tiver qualquer dúvida sobre o processo de comissão, ou só quiser conversar, sinta-se à vontade para me contactar em qualquer uma das plataformas abaixo.
+                    Sempre estou disposta a ajudar!
+                </p>
+                <p><a href="https://twitter.com/tullydesenhos">@tullydesenhos</a></p>
+                <p><a>@tullydesenhos</a></p>
+            </div>
+            <div id="examplesBorder">
+                <div id="examplesArea">
+                    <div id="info">
+                        <h2>Fullbody</h2>
+                        <h3 id="prices">80 R$</h3>
+                    </div>
+                    <div id="cut1"></div>
+                    <div id="cut2"></div>
+                    <div id="gradient"></div>
+                    <div id="gradient2"></div>
+                    <img id="exampleImg" src="./examples/Achoqueterminei.png">
+                </div>
+            </div>
         </div>
     </div>
+    <div id="slidebar"></div>
 </body>
 <script src="./index.js"></script>
 </html>
